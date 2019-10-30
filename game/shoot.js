@@ -69,6 +69,7 @@ function player_bullet_collision() {
             player1.bullets.splice(i, 1);
             i--;
             scene.remove(player2);
+            player2.life--;
             player2.dead();
 
         }

@@ -23,7 +23,11 @@
             text-align: center;
         }
 
-        .life {
+        .life1{
+            color:white;
+        }
+
+        .life2{
             color:white;
         }
 
@@ -35,11 +39,11 @@
     <div id="container"></div>
     <div id="player1">
         <strong>Joueur 1</strong>
-        <span class="life">3</span> vies
+        <span class="life1">3</span> vies
     </div>
     <div id="player2">
         <strong>Joueur 2</strong>
-        <span class="life">3</span> vies
+        <span class="life2">3</span> vies
     </div>
 </body>
 
@@ -74,7 +78,8 @@
         shoot();
         collisions();
     }
-
+    $('life1').text(player1.life);
+    $('life2').text(player2.life);
     function render()
     {
         renderer.render(scene, camera);
@@ -86,5 +91,7 @@
             .css('height', HEIGHT)
         ;
     });
+
+
 </script>
 </html>
