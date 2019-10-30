@@ -24,12 +24,18 @@ function init()
 
     noGround = [];
     ground = new Ground(0xffffff, WIDTH, HEIGHT, 10);
-    
-    player1 = new Player("player1", 0xffff00, new THREE.Vector2(50, 0), 0);
-    scene.add(player1.graphic);
 
     light1 = new Light("sun", 0xffffff, "0,0,340");
     scene.add(light1);
+
+    light2 = new Light("sun", 0xffffff, "0,0,340");
+    scene.add(light2);
+
+    player1 = new Player("player1", 0xffff00, new THREE.Vector2(50, 0), 0, light1);
+    scene.add(player1.graphic);
+
+    player2 = new Player("player2", 0xffff00, new THREE.Vector2(50, 0), 0, light2);
+    scene.add(player2.graphic);
 }
 
 function Ground(color, size_x, size_y, nb_tile)
@@ -46,8 +52,6 @@ function Ground(color, size_x, size_y, nb_tile)
 
     for (x = minX; x <= maxX; x = x+sizeOfTileX){
         for (y = minY; y <= maxY; y = y+sizeOfTileY){
-
-
 
             if ( (x == 0 ) && (y == 0) ) {
                 color = 0xFF5733;
@@ -72,7 +76,7 @@ function Ground(color, size_x, size_y, nb_tile)
 
 function Light(name, color, position)
 {
-    pointLight = new THREE.PointLight(color, 50, 350);
+    pointLight = new THREE.PointLight(color, 50, 300);
 
     pointLight.position.x = position.split(',')[0];
     pointLight.position.y = position.split(',')[1];
