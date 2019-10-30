@@ -70,7 +70,10 @@ function player_bullet_collision() {
             i--;
             scene.remove(player2);
             player2.life--;
-            player2.dead();
+
+            if (player2.life === 0) {
+                player2.dead();
+            }
 
         }
     }
