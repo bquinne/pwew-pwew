@@ -37,6 +37,7 @@ function collisions()
     bullet_collision();
     player_collision();
     player_falling();
+    player_bullet_collision();
 }
 
 function bullet_collision()
@@ -53,13 +54,14 @@ function bullet_collision()
         }
     }
 
-    //collision between bullet and player
 
+
+}
+
+function player_bullet_collision() {
+    //collision between bullet and player
     for (var i = 0; i < player1.bullets.length; i++)
     {
-        //console.log(Math.round(Math.abs(player1.bullets[i].position.x)));
-        //console.log(player2.graphic.position.x - 50);
-
         if (( (player2.graphic.position.x - 10) < (Math.abs(player1.bullets[i].position.x)) && (Math.abs(player1.bullets[i].position.x)) < (player2.graphic.position.x + 10)) &&
             ( (player2.graphic.position.y - 10) < (Math.abs(player1.bullets[i].position.y)) && (Math.abs(player1.bullets[i].position.y)) < (player2.graphic.position.y + 10)))
         {
@@ -71,9 +73,7 @@ function bullet_collision()
 
         }
     }
-
 }
-
 function player_collision()
 {
     //collision between player and walls
