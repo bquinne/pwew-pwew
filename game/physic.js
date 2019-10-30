@@ -25,6 +25,5 @@ function update()
 
     player1.move();
     player2.move();
-    $('life').text
     controls.update();
 }
